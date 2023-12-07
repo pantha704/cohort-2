@@ -14,7 +14,72 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let spent = {};
+
+  transactions.forEach((t) => {
+    let categories_spent = Object.keys(spent);
+    // console.log(categories_spent);
+    if (categories_spent.includes(t.category)) {
+      spent[t.category] += parseInt(t.price);
+      // console.log("includes", t.category);
+    } else {
+      spent[t.category] = parseInt(t.price);
+      // console.log(t.price, "e");
+    }
+  });
+
+  final = [];
+  // console.log(spent);
+
+  let arr = Object.keys(spent);
+  arr.forEach((cat) => {
+    new_obj = {
+      category: cat,
+      totalSpent: spent[cat],
+    };
+    final.push(new_obj);
+  });
+
+  // console.log(final);
+  return final;
 }
+
+// calculateTotalSpentByCategory([
+//   {
+//     id: 1,
+//     timestamp: 1656076800000,
+//     price: 10,
+//     category: "Food",
+//     itemName: "Pizza",
+//   },
+//   {
+//     id: 1,
+//     timestamp: 1656076800000,
+//     price: 90,
+//     category: "Food",
+//     itemName: "Pizza",
+//   },
+//   {
+//     id: 1,
+//     timestamp: 1656076800000,
+//     price: 20,
+//     category: "Workout",
+//     itemName: "Pizza",
+//   },
+//   {
+//     id: 1,
+//     timestamp: 1656076800000,
+//     price: 30,
+//     category: "Home",
+//     itemName: "Pizza",
+//   },
+//   {
+//     id: 1,
+//     timestamp: 1656076800000,
+//     price: 60,
+//     category: "Home",
+//     itemName: "Pizza",
+//   },
+// ]);
 
 module.exports = calculateTotalSpentByCategory;
