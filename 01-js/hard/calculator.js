@@ -15,7 +15,109 @@
 
   Once you've implemented the logic, test your code by running
 */
+// let result = 0;
+// class Calculator {
+//   Calculator(result) {
+//     this.result = result;
+//   }
+//   add = (n) => (result += n);
+//   subtract = (n) => (result -= n);
+//   multiply = (n) => (result *= n);
+//   divide = (n) => (result = result / n);
+//   clear = () => (result = 0);
+//   getResult = () => result;
+//   calculate = (str) => {
+//     try {
+//       let result = str;
 
-class Calculator {}
+//       function areBracketsBalanced(input) {
+//         const stack = [];
+//         const openingBrackets = ["(", "[", "{"];
+//         const closingBrackets = [")", "]", "}"];
+
+//         for (let char of input) {
+//           if (openingBrackets.includes(char)) {
+//             // If the character is an opening bracket, push it onto the stack
+//             stack.push(char);
+//           } else if (closingBrackets.includes(char)) {
+//             // If the character is a closing bracket, check if it matches the most recent opening bracket
+//             const lastOpeningBracket = stack.pop();
+
+//             // Check if the brackets match
+//             if (
+//               (char === ")" && lastOpeningBracket !== "(") ||
+//               (char === "]" && lastOpeningBracket !== "[") ||
+//               (char === "}" && lastOpeningBracket !== "{")
+//             ) {
+//               return Error; // Brackets are not balanced
+//             }
+//           }
+//         }
+//         return Error;
+//       }
+
+//       areBracketsBalanced(result);
+
+//       //check string
+//       if (result.includes("string")) return Error;
+
+//       result = eval(result);
+
+//       if (result == Infinity) {
+//         return Error;
+//       }
+//       console.log(result);
+//       return result;
+//     } catch (error) {
+//       console.log(error);
+//       return error;
+//     }
+//   };
+// }
+// const cunst = new Calculator(0).calculate("2+sdsa");
+
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(value) {
+    return (this.result += value);
+  }
+
+  subtract(value) {
+    this.result -= value;
+  }
+
+  multiply(value) {
+    this.result *= value;
+  }
+
+  divide(value) {
+    if (value === 0) {
+      throw new Error("Cannot divide by zero");
+    }
+    this.result /= value;
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(expression) {
+    try {
+      // Use the eval function to evaluate the expression
+      this.result = eval(expression);
+      if (this.result == Infinity) throw new Error();
+    } catch (error) {
+      // If an error occurs during evaluation, throw a custom error
+      throw new Error("Invalid expression");
+    }
+  }
+}
 
 module.exports = Calculator;
