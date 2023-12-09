@@ -4,7 +4,6 @@
 */
 
 function isPalindrome(str) {
-<<<<<<< HEAD
   // let string1 = str.toLowerCase().split("");
   // let string2 = [];
   // for (let i = string1.length - 1; i >= 0; i--) {
@@ -20,9 +19,5 @@ function isPalindrome(str) {
   return cleanStr === cleanStr.split("").reverse().join("");
 }
 isPalindrome("Pratham");
-=======
-  return true;
-}
 
->>>>>>> assignments_up/master
 module.exports = isPalindrome;

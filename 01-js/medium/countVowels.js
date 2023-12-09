@@ -6,7 +6,6 @@
 */
 
 function countVowels(str) {
-<<<<<<< HEAD
   // Your code here
   let ctr = 0;
   let string = str.toLowerCase().split("").sort();
@@ -20,9 +19,3 @@ function countVowels(str) {
 }
 countVowels("returns the correct count for strings with punctuation marks");
 module.exports = countVowels;
-=======
-    // Your code here
-}
-
-module.exports = countVowels;
->>>>>>> assignments_up/master
