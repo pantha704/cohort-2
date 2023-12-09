@@ -15,6 +15,7 @@
 
   Once you've implemented the logic, test your code by running
 */
+<<<<<<< HEAD
 // let result = 0;
 // class Calculator {
 //   Calculator(result) {
@@ -119,5 +120,9 @@ class Calculator {
     }
   }
 }
+=======
+
+class Calculator {}
+>>>>>>> assignments_up/master
 
 module.exports = Calculator;

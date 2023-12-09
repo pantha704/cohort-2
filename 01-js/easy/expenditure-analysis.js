@@ -14,6 +14,7 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
+<<<<<<< HEAD
   let spent = {};
 
   transactions.forEach((t) => {
@@ -82,4 +83,9 @@ function calculateTotalSpentByCategory(transactions) {
 //   },
 // ]);
 
+=======
+  return [];
+}
+
+>>>>>>> assignments_up/master
 module.exports = calculateTotalSpentByCategory;
