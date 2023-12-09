@@ -120,9 +120,5 @@ class Calculator {
     }
   }
 }
-=======
-
-class Calculator {}
->>>>>>> assignments_up/master
 
 module.exports = Calculator;

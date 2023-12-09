@@ -12,9 +12,5 @@ function isAnagram(str1, str2) {
   return JSON.stringify(string1) === JSON.stringify(string2);
 }
 // console.log(isAnagram("sprat", "traps"));
-=======
 
-}
-
->>>>>>> assignments_up/master
 module.exports = isAnagram;

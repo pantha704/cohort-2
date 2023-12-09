@@ -18,7 +18,3 @@ function calculateTime(n) {
   return time;
 }
 calculateTime(1000000000);
-=======
-    return 0.01;
-}
->>>>>>> assignments_up/master
