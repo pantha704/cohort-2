@@ -5,12 +5,10 @@
 */
 
 function isAnagram(str1, str2) {
-<<<<<<< HEAD
   const string1 = str1.toLowerCase().split("").sort();
   const string2 = str2.toLowerCase().split("").sort();
 
   return JSON.stringify(string1) === JSON.stringify(string2);
 }
 // console.log(isAnagram("sprat", "traps"));
-
 module.exports = isAnagram;

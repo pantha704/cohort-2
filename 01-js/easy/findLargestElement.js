@@ -6,7 +6,6 @@
 */
 
 function findLargestElement(numbers) {
-<<<<<<< HEAD
   let a = -Infinity;
   numbers.forEach((n) => {
     if (n >= a) a = n;
