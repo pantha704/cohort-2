@@ -29,7 +29,6 @@ app.use((req, res, next) => {
   if (numberOfRequestsForUser[userId] > 5) {
     return res.status(429).send("Too many requests!");
   }
-
   next();
 });
 
