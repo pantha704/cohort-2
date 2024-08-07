@@ -20,21 +20,33 @@ app.use((req, res, next) => {
     return res.status(400).send("User ID is required");
   }
 
+  const currentTime = Date.now();
+
   if (!numberOfRequestsForUser[userId]) {
-    numberOfRequestsForUser[userId] = 0;
+    numberOfRequestsForUser[userId] = {
+      count: 1,
+      firstRequestTime: currentTime,
+    };
+  } else {
+    const timeDifference =
+      currentTime - numberOfRequestsForUser[userId].firstRequestTime;
+
+    if (timeDifference < 1000) {
+      numberOfRequestsForUser[userId].count++;
+    } else {
+      numberOfRequestsForUser[userId] = {
+        count: 1,
+        firstRequestTime: currentTime,
+      };
+    }
   }
 
-  numberOfRequestsForUser[userId]++;
-
-  if (numberOfRequestsForUser[userId] > 5) {
-    return res.status(429).send("Too many requests!");
+  if (numberOfRequestsForUser[userId].count > 5) {
+    return res.status(404).send("Too many requests!");
   }
+
   next();
 });
-
-setInterval(() => {
-  numberOfRequestsForUser = {};
-}, 1000);
 
 app.get("/user", function (req, res) {
   res.status(200).json({ name: "john" });
@@ -44,4 +56,5 @@ app.post("/user", function (req, res) {
   res.status(200).json({ msg: "created dummy user" });
 });
 
+// app.listen(3000);
 module.exports = app;
